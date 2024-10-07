@@ -65,24 +65,54 @@ public class DoubleLinkedList<E> {
     }
 
     public E first() {
-        return null;
+        if (isEmpty()) {
+            return null;
+        }
+        return header.getNext().getElement();
     }
 
     public E last() {
-        return null;
+            if (isEmpty()) {
+            return null;
+        }
+        return trailer.getPrev().getElement();
+    }
+        private void addBetween(E e, Node<E> predecessor, Node<E> sucessor) {
+            Node<E> newest = new Node<>(e,predecessor,sucessor);
+            predecessor.setNext(newest);
+            sucessor.setNext(newest);
+            size++;
+
     }
 
     public void addFirst(E e) {
+    addBetween(e, header, header.getNext());
+
     }
 
     public void addLast(E e) {
+        addBetween(e,trailer.getPrev(), trailer);
     }
+    public E remove(Node <E> Node){
+    Node<E> predecessor = Node.getPrev();
+    Node<E> sucessor = Node.getPrev();
+    
+    Node = null;
+    Node.setNext(null);
+    Node.setPrev(null);
 
+    predecessor.setNext(sucessor);
+    sucessor.setNext(sucessor);
+    size--;
+    return Node.getElement();
+    }
     public void removeFirst(E e) {
 
     }
-    private void addBetween(){
-        
-    }
+    
+    public void removeLast(E e) {
 
+    }
+    
+   
 }
