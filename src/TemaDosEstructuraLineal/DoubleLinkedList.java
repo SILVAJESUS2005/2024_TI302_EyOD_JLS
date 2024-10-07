@@ -72,47 +72,53 @@ public class DoubleLinkedList<E> {
     }
 
     public E last() {
-            if (isEmpty()) {
+        if (isEmpty()) {
             return null;
         }
         return trailer.getPrev().getElement();
     }
-        private void addBetween(E e, Node<E> predecessor, Node<E> sucessor) {
-            Node<E> newest = new Node<>(e,predecessor,sucessor);
-            predecessor.setNext(newest);
-            sucessor.setNext(newest);
-            size++;
+
+    private void addBetween(E e, Node<E> predecessor, Node<E> sucessor) {
+        Node<E> newest = new Node<>(e, predecessor, sucessor);
+        predecessor.setNext(newest);
+        sucessor.setPrev(newest);
+        size++;
 
     }
 
     public void addFirst(E e) {
-    addBetween(e, header, header.getNext());
+        addBetween(e, header, header.getNext());
 
     }
 
     public void addLast(E e) {
-        addBetween(e,trailer.getPrev(), trailer);
+        addBetween(e, trailer.getPrev(), trailer);
     }
-    public E remove(Node <E> Node){
-    Node<E> predecessor = Node.getPrev();
-    Node<E> sucessor = Node.getPrev();
-    
-    Node = null;
-    Node.setNext(null);
-    Node.setPrev(null);
 
-    predecessor.setNext(sucessor);
-    sucessor.setNext(sucessor);
-    size--;
-    return Node.getElement();
-    }
-    public void removeFirst(E e) {
+    public E remove(Node<E> node) {
+        Node<E> predecessor = node.getPrev();
+        Node<E> sucessor = node.getNext();
 
-    }
-    
-    public void removeLast(E e) {
+        node.setNext(null);
+        node.setPrev(null);
 
+        predecessor.setNext(sucessor);
+        sucessor.setPrev(predecessor);
+        size--;
+        return node.getElement();
     }
-    
-   
+
+    public E removeFirst() {
+        if (isEmpty()) {
+            return null;
+        }
+        return remove(header.getNext());
+    }
+
+    public E removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+        return remove(trailer.getPrev());
+    }
 }
