@@ -11,26 +11,39 @@ package UnidadDos;
 public class SinglyLinkedListTest {
     public static void main(String[] args) {
         StackList<Integer> ssl = new SinglyLinkedList<>();
-        System.out.println("Size: " + ssl.size());
-        System.out.println("First:" + ssl.first());
+        ssl.addFirst("3");
+        ssl.addLast(8);
+        ssl.addLast(9);
+        ssl.addFirst("1");
         System.out.println("Last: " + ssl.last());
-
-        ssl.addFirst("Jesus");
-
-        System.out.println("Size: " + ssl.size());
-        System.out.println("First:" + ssl.first());
+        System.out.println("IsEmpty: " + ssl.isEmpty());
+        ssl.addFirst("2");
+        ssl.addLast(7);
+        System.out.println("First: " + ssl.first());
         System.out.println("Last: " + ssl.last());
-
-        ssl.addFirst("Montecillo");
-
         System.out.println("Size: " + ssl.size());
-        System.out.println("First:" + ssl.first());
-        System.out.println("Last: " + ssl.last());
-        System.out.println("Remove" + ssl.removeFirst());
-
-        System.out.println("Size: " + ssl.size());
-        System.out.println("First:" + ssl.first());
-        System.out.println("Last: " + ssl.last());
+        System.out.println("RemoveFirst: " + ssl.removeFirst());
+        System.out.println("RemoveFirst: " + ssl.removeFirst());
+//        System.out.println("Size: " + ssl.size());
+//        System.out.println("First:" + ssl.first());
+//        System.out.println("Last: " + ssl.last());
+//
+//        ssl.addFirst("Jesus");
+//
+//        System.out.println("Size: " + ssl.size());
+//        System.out.println("First:" + ssl.first());
+//        System.out.println("Last: " + ssl.last());
+//
+//        ssl.addFirst("Montecillo");
+//
+//        System.out.println("Size: " + ssl.size());
+//        System.out.println("First:" + ssl.first());
+//        System.out.println("Last: " + ssl.last());
+//        System.out.println("Remove" + ssl.removeFirst());
+//
+//        System.out.println("Size: " + ssl.size());
+//        System.out.println("First:" + ssl.first());
+//        System.out.println("Last: " + ssl.last());
 
 //        String dato = null;
 //        while ((dato = ssl.removeFirst()) != null) {
